@@ -1,0 +1,33 @@
+@startuml
+
+class Company {
+
+-id : int
+-name : String
+-companyname : String
+-country : String
+
+}
+
+class Employee {
+- id : int
+- firstname : String
+- lastname : String
+- phonenumber : String
+- email : String
+- salary : int
+- startdate : LocalDate
+- role : Role
+- company : Company
+}
+
+enum Role {
+COORDINATOR
+DATA
+ENGINEERING
+}
+
+Company "1" -- "0..*" Employee : has
+Role --* Employee : has
+
+@enduml

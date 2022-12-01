@@ -1,0 +1,1 @@
+Welcome to test company!Dear TestEmployee,We are all really excited to welcome you to our team! As agreed, your start date will be 2022-08-30 andyour starting salary is $[startingsalary].We expect to see you in our offices at2022-08-30.We are looking forward to working with you!

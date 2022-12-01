@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bloomtech.welcomeletter.MasteryTask_1_BuilderPattern" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-01T20:17:03" hostname="Sams-MacBook-Air.local" time="0.049">
+  <properties/>
+  <testcase name="testBuilderCreatesInvalidEmployeeObject_returnsRuntimeException()" classname="com.bloomtech.welcomeletter.MasteryTask_1_BuilderPattern" time="0.027"/>
+  <testcase name="testBuilderCreatesValidEmployeeObjects_allFields()" classname="com.bloomtech.welcomeletter.MasteryTask_1_BuilderPattern" time="0.015"/>
+  <testcase name="testBuilderCreatesValidEmployeeObjects_onlyRequiredFields()" classname="com.bloomtech.welcomeletter.MasteryTask_1_BuilderPattern" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

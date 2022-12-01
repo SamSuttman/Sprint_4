@@ -1,0 +1,46 @@
+@startuml
+actor App
+participant EmployeeService
+participant EmployeeRepository
+database Datasource
+participant FormLetterService
+participant FileManager
+
+Employee -> FileManager: getTextFromFile
+FileManager --> Employee: String
+
+App-> EmployeeService:  GET EmployeeById{Id}
+EmployeeService -> EmployeeRepository: findEmployeeById
+EmployeeRepository -> Datasource:
+alt failed to find employee
+Datasource --> EmployeeRepository: null
+EmployeeRepository --> EmployeeService: RuntimeException
+EmployeeService --> App: ResponseEntity<Error>
+else employee not found
+end
+
+Datasource --> EmployeeRepository: Employee
+EmployeeRepository --> EmployeeService: Employee
+EmployeeService --> App: ResponseEntity<Employee>
+
+Employee -> EmployeeService:  getEmployeeById{Id}
+EmployeeService -> EmployeeRepository: findEmployeeById
+EmployeeRepository -> Datasource:
+
+
+Employee -> Datasource: GenerateWelcomeLetter
+Datasource --> FormLetterService: GET/Text/From/File/{String}
+FormLetterService --> FileManager: GenerateWelcomeLetter
+FileManager --> Employee: sendFormToEmployeeWithId
+
+Datasource --> FormLetterService: GET Generate/Welcome/Letter
+FormLetterService --> FileManager: writeTextToFile
+FileManager --> Employee: generateWelcomeLetter
+alt failed to write to file
+Datasource --> FormLetterService: null
+FormLetterService --> Employee: RuntimeException
+else success
+end
+
+
+@enduml
